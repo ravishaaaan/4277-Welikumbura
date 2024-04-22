@@ -6,12 +6,12 @@ pipeline {
   stages {
     stage('build'){
       steps {
-        sh 'docker build -t thetharz/3996-node-app-image .'
+        sh 'docker build -t ravishaaaan/4277-node-app-image .'
       }
     }
     stage('run'){
       steps{
-        sh 'docker run -d -p 5000:3000 thetharz/3996-node-app-image'
+        sh 'docker run -d -p 5000:3000 ravishaaaan/4277-node-app-image'
       }
     }
     stage('final'){
@@ -23,9 +23,9 @@ pipeline {
       steps{
         script{
           withCredentials([string(credentialsId: 'docker-pwd', variable: 'docker')]) {
-    sh 'docker login -u thetharz -p ${docker}'
+    sh 'docker login -u ravishaaaan -p ${docker}'
   }
-    sh 'docker push thetharz/3996-node-app-image'
+    sh 'docker push ravishaaaan/4277-node-app-image'
         }
       }
     }
